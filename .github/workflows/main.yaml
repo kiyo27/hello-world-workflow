@@ -1,0 +1,18 @@
+# on:
+#   schedule:
+#   - cront: '*/5 * * * *'
+
+on: [push]
+
+jobs:
+  slack_notification_job:
+    runs-on: ubuntu-latest
+    name: A job to send a message to slack
+    steps:
+    - name: Slack notification
+      id: slack
+      uses: kiyo27/hello-world-javascript-action@v1
+      with:
+        webhook-url: ${{ secrets.WEBHOOK_URL }}
+    - name: Get the output time
+      run: echo "The time was ${{ steps.slack.outputs.time }}"
