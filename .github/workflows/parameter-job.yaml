@@ -1,4 +1,4 @@
-name: Diff AccessDB
+name: Parameter Job
 on: [workflow_dispatch]
 
 jobs:
@@ -7,11 +7,13 @@ jobs:
     # Map a step output to a job output
     outputs:
       output1: ${{ steps.step1.outputs.test }}
-      output2: ${{ steps.step2.outputs.test }}
+      output2: ${{ steps.step-second.outputs.test }}
     steps:
       - id: step1
+        name: first step
         run: echo "::set-output name=test::hello"
-      - id: step2
+      - id: step-second
+        name: second step
         run: echo "::set-output name=test::world"
   job2:
     runs-on: ubuntu-latest

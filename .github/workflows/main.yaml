@@ -2,7 +2,8 @@
 #   schedule:
 #   - cront: '*/5 * * * *'
 
-on: [push]
+# on:
+#   workflow_dispatch:
 
 jobs:
   slack_notify:
