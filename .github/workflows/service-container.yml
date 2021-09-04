@@ -25,6 +25,9 @@ jobs:
         ports:
           # サービスコンテナの tcp ポート 5432 をホストにマップする
           - 5432:5432
+    defaults:
+      run:
+        working-directory: service-container
 
     steps:
       # CI テストを実行する前に、リポジトリにコードのコピーをダウンロードする
